@@ -19,8 +19,6 @@ def get_bill(name, data):
 
 
 def format_number(number, num_decimal_digits):
-    string = f"{number}"
-    print(string)
     str_int_number = ""
     string = ""
     separateur = " "
@@ -39,6 +37,10 @@ def format_number(number, num_decimal_digits):
     # Reste de la partie entière
     for i in range(len(str_int_number)//3):
         string += separateur + str_int_number[i*3:i*3+3]
+
+    # enlever l'espace en trop au début si besoin
+    if string[0] == separateur:
+        string = string[1:]
 
     # Retourne la partie décimale sans le "0."" au début
     str_dec_number = str(abs(number) % 1)[2:]
